@@ -29,6 +29,7 @@ App Workflow:
     Once the OTP is verified, use the JWT token for authenticating other actions.
     Enabling or disabling 2FA  requires the current password + the newly generated OTP.
     Updating the password requires the current password + the newly generated OTP.
+    Note - OTP will be send through the registered email id
 
 Code coverage
    file:///{path}/coverage/index.html
