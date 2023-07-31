@@ -69,7 +69,7 @@ CURL Requests
    curl --location --request POST 'localhost:3000/users/generate_otp' \
    --header 'Content-Type: application/json' \
    --header 'Accept: application/json' \
-   --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2OTA4MDQ3Mjh9.jd_FQdE5jzdOu9YuTwP6wbVdk0FNdCvjBsPGsElkfvc' \
+   --header 'Authorization: Bearer Token' \
    --data ''
 
 6. Verify OTP
@@ -77,7 +77,7 @@ CURL Requests
    curl --location 'localhost:3000/users/verify_otp' \
    --header 'Content-Type: application/json' \
    --header 'Accept: application/json' \
-   --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2OTA4MDQ3Mjh9.jd_FQdE5jzdOu9YuTwP6wbVdk0FNdCvjBsPGsElkfvc' \
+   --header 'Authorization: Bearer Token' \
    --data '{"otp": "388409"}'
 
 7. Toggle 2FA
@@ -85,7 +85,7 @@ CURL Requests
    curl --location --request PATCH 'localhost:3000/users/toggle_2fa' \
    --header 'Content-Type: application/json' \
    --header 'Accept: application/json' \
-   --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJvdHBfdmVyaWZpZWQiOnRydWUsImV4cCI6MTY5MDgwNTAwNH0.2kiAFIKN3e2BfLLTOl-S00KRbQ9qzoTyHo0dGOEX4J4' \
+   --header 'Authorization: Bearer Token' \
    --data-raw '{"password": "Test@1234", "otp": "544608", "enable_2fa": false}'
 
 8. Update Password
@@ -93,5 +93,5 @@ CURL Requests
    curl --location --request PATCH 'localhost:3000/users/passwords' \
    --header 'Content-Type: application/json' \
    --header 'Accept: application/json' \
-   --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJvdHBfdmVyaWZpZWQiOnRydWUsImV4cCI6MTY5MDgwODE1NH0.krhMI0b1YYei0eX1iSPZQAcifiEljMxILMGdozfd_Jw' \
+   --header 'Authorization: Bearer Token' \
    --data-raw '{"current_password": "Test@1234", "new_password": "TestNew@1234", "otp": "275073"}'
