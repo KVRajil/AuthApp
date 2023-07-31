@@ -18,7 +18,7 @@ module Users
     def verify_otp
       if OtpService.new(current_user).verify(params[:otp])
         payload = { user_id: current_user.id, otp_verified: true }
-        token   = JwtService.encode(payload, 50.minutes)
+        token   = JwtService.encode(payload, 5.minutes)
         render json: { token: token }, status: :created
       else
         render json: { error: 'Invalid OTP' }, status: :unauthorized
