@@ -1,0 +1,24 @@
+version: '3'
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
+  web:
+    platform: linux/x86_64
+    build: .
+    command: bash -c "rails db:prepare && rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+      - .:/auth_app
+    env_file:
+      - '.env'  
+    ports:
+      - ${PORT}:3000
+    depends_on:
+      - db
+    environment:
+      - ENABLE_BOOTSNAP=false
+    tty: true
+    stdin_open: true

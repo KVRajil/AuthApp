@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+
+development:
+  <<: *default
+  database: auth_app_development
+  host: localhost
+  port: 5432
+  username: postgres
+  passowrd: admin
+
+test:
+  <<: *default
+  database: auth_app_test
+  host: localhost
+  port: 5432
+  username: postgres
+  passowrd: admin

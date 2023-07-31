@@ -1,0 +1,10 @@
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+<h1>Hello <%= @user.email %>!</h1>
+<p>Thank you for registering. Please click the link below to confirm your email:</p>
+<p><a href="<%= users_confirmation_url(@user.confirmation_token) %>">Confirm Email</a></p>
+</body>
+</html>

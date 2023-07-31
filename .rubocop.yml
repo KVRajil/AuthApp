@@ -1,0 +1,34 @@
+require:
+  - rubocop-rails
+  - rubocop-performance
+
+AllCops:
+  NewCops: enable
+  TargetRubyVersion: 3.0.2
+  DisplayCopNames: true
+  SuggestExtensions: false
+  Exclude:
+    - tmp/**/*
+    - vendor/**/*
+    - db/schema.rb
+
+
+Rails/UnknownEnv:
+  Environments:
+    - production
+    - development
+    - test
+
+
+Style/StringLiteralsInInterpolation:
+  Enabled: true
+  EnforcedStyle: double_quotes
+
+Layout/LineLength:
+  Max: 150
+
+Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
